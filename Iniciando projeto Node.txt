@@ -1,0 +1,71 @@
+Iniciando projeto Node
+
+criar a pasta dentro da pasta iniciar através do prompt de comando digitar:
+
+npm init ou npm -Y
+
+após instalar o node instalar o express... npm install express ou npm i express.
+
+após importar o express adicionar o arquivo server.js. e adicionar no arquivo
+package.jason o "type": "module"
+
+logo após adicionar no server.js o require ou import
+
+import express from 'express'.
+
+COMANDO PARA O SERVIDOR ATUALIZAR AUTOMATICAMENTE:
+
+node --watch server.js  
+
+Rotas:
+ query 
+app.get('/users', function (req, res) {
+    console.log(req)
+    res.send('Hello World')
+});
+
+Route params, obs: Usa o /:id após os users
+
+app.get('/users', function (req, res) {
+    console.log(req)
+    res.send('Hello World')
+});
+
+
+conectando com o banco de dados Mongo: enrar no site e seguir o passo a passo.
+Após configurar ir para site do prisma instalar uma biblioteca.
+para instalar o prima tem q seguir a documentação:
+
+Start from scratch => MongoDB => mudar de typescript para javascript caso esteja usando o java, 
+
+dar seguintes comandos: npm install prisma --save-dev,
+npx prisma init.
+
+prximo passo: Connect your database (MongoDB)
+
+pegas dos dados:
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+} substitui pelo q vem. caso esteja usando o mongo.
+
+depois vai em arquivo .env, para substituir o ususario e senha q foi foi feito no banco de dados
+mongo db.Exemplo roberiouol e senha doida dfjh434hgjf. no final do link onde tem mongo.net/(adicionar o nome exemplos users).
+
+logo apois ir no pisma clicar em Creating the Prisa schema. depois copiar o preferir exemplo:
+
+model User {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  email   String   @unique
+  name    String
+  age Int
+  
+}
+
+logo depois instalar no terminal:
+npm install @prisma/cliente
+
+para finalizar
+npx prisma db push.
+
+rodar o prisma: npx prisma studio.
